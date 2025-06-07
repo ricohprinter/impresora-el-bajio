@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Impresora El Bajío</title>
+  <title>PRINTIVA</title>
   <style>
     * {
       box-sizing: border-box;
@@ -25,11 +25,21 @@
       text-align: center;
     }
 
+    header img {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
     nav a {
       margin: 0 15px;
       color: #00ff5e;
       text-decoration: none;
       font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     section {
@@ -60,6 +70,31 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .boton:hover {
+      background-color: #009944;
+      transform: scale(1.05);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: "✔ ";
+      color: #00c851;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
 
     footer {
@@ -69,15 +104,32 @@
       padding: 15px;
       margin-top: 40px;
     }
+
+    /* Botón flotante de WhatsApp */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00c851;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Impresora El Bajío</h1>
+    <img src="logo.png" alt="Logo PRINTIVA" />
+    <h1>PRINTIVA</h1>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
+      <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
@@ -95,8 +147,16 @@
       <p>Impresora multifuncional blanco y negro. Ideal para oficinas pequeñas y medianas. Alta velocidad de impresión y escaneo.</p>
       <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
     </div>
+  </section>
 
-    <!-- Puedes duplicar el div ".producto" para más impresoras -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Renta mensual de equipos Ricoh</li>
+      <li>Mantenimiento preventivo y correctivo</li>
+      <li>Soporte técnico rápido</li>
+      <li>Capacitación para uso eficiente</li>
+    </ul>
   </section>
 
   <section id="contacto">
@@ -104,11 +164,22 @@
     <p><strong>📞 Teléfono:</strong> 477 851 8038</p>
     <p><strong>📧 Correo:</strong> printricoh@hotmail.com</p>
     <p><strong>📍 Ubicación:</strong> León, Guanajuato</p>
+
+    <h3>Escríbenos</h3>
+    <form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain">
+      <label>Nombre:<br><input type="text" name="nombre" required></label>
+      <label>Correo:<br><input type="email" name="correo" required></label>
+      <label>Mensaje:<br><textarea name="mensaje" rows="4" required></textarea></label>
+      <button type="submit" class="boton">Enviar mensaje</button>
+    </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 Impresora El Bajío - Todos los derechos reservados</p>
+    <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
+    <p>Desarrollado por Tin Tin 🛠️</p>
   </footer>
+
+  <a href="https://wa.me/524778518038" class="whatsapp" target="_blank">💬</a>
 
 </body>
 </html>
