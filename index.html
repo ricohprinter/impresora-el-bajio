@@ -28,8 +28,8 @@
 
     .header-container {
       display: flex;
-      align-items: center;        /* Centra verticalmente */
-      justify-content: space-between;  /* Logos a los lados, título en medio */
+      align-items: center;
+      justify-content: space-between;
     }
 
     .header-container h1 {
@@ -40,7 +40,7 @@
     }
 
     .logo {
-      height: 120px; /* Ajusta tamaño de los logos */
+      height: 120px;
       width: auto;
     }
 
@@ -101,6 +101,31 @@
       text-align: center;
       padding: 15px;
       margin-top: 40px;
+    }
+
+    /* Redes sociales en footer */
+    footer .redes {
+      margin-top: 10px;
+    }
+
+    footer .redes a.redes-icon {
+      display: inline-block;
+      margin: 0 8px;
+      background-color: #00ff5e;
+      color: #000;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50%;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+
+    footer .redes a.redes-icon:hover {
+      background-color: #009e3c;
+      color: #fff;
     }
 
     /* Botón flotante WhatsApp */
@@ -164,6 +189,11 @@
 
   <footer>
     <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
+    <div class="redes">
+      <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank" class="redes-icon">📘</a>
+      <a href="https://www.instagram.com/tuusuario" target="_blank" class="redes-icon">📸</a>
+      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="redes-icon">🔗</a>
+    </div>
   </footer>
 
   <!-- Botón flotante WhatsApp -->
@@ -171,5 +201,3 @@
 
 </body>
 </html>
-
-
