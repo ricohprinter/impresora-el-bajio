@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PRINTIVA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRINTIVA - Popup de Contacto</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin:0; padding:0; }
-    body { font-family: 'Montserrat', sans-serif; background-color: #f2f2f2; color: #333; line-height:1.6; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Montserrat', sans-serif; background:#f2f2f2; color:#333; line-height:1.6; }
 
-    header { background-color: #000; color: #00ff5e; padding: 15px 20px; text-align: center; }
+    header { background:#000; color:#00ff5e; padding:15px 20px; text-align:center; }
     .header-container { display:flex; align-items:center; justify-content:space-between; }
     .header-container h1 { margin:0; color:#00ff5e; flex-grow:1; text-align:center; }
-    .logo { height:120px; width:auto; }
+    .logo { height:80px; width:auto; }
 
     nav { margin-top:10px; }
-    nav a { margin:0 15px; color:#00ff5e; text-decoration:none; font-weight:bold; transition:color 0.3s; }
+    nav a { margin:0 15px; color:#00ff5e; text-decoration:none; font-weight:bold; transition:0.3s; }
     nav a:hover { color:#fff; }
 
     section { padding:40px 20px; max-width:900px; margin:auto; }
     h2 { margin-bottom:15px; color:#000; }
     .producto, .servicio { background:#fff; padding:20px; margin:20px 0; border-left:5px solid #00c851; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
+    .boton { display:inline-block; margin-top:10px; padding:12px 24px; background:#00c851; color:white; text-decoration:none; border-radius:6px; transition:0.3s; }
+    .boton:hover { background:#009e3c; }
 
-    .boton { display:inline-block; margin-top:10px; padding:12px 24px; background-color:#00c851; color:white; text-decoration:none; border-radius:6px; transition:background 0.3s; }
-    .boton:hover { background-color:#009e3c; }
-
-    footer { background-color:#000; color:white; text-align:center; padding:15px; margin-top:40px; }
+    footer { background:#000; color:white; text-align:center; padding:15px; margin-top:40px; }
     footer .redes { margin-top:10px; }
     footer .redes a { margin:0 8px; display:inline-block; }
     footer .redes img.social-icon { width:40px; height:40px; transition: transform 0.3s; }
-    footer .redes img.social-icon:hover { transform: scale(1.2); }
+    footer .redes img.social-icon:hover { transform:scale(1.2); }
 
-    /* WhatsApp flotante */
     .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; font-size:24px; padding:12px 14px; border-radius:50%; box-shadow:0 3px 6px rgba(0,0,0,0.2); text-decoration:none; z-index:1001; }
     .whatsapp-float:hover { background:#1ebe5a; }
 
-    /* Formulario contacto */
     form { background:#fff; padding:20px; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); margin-top:20px; }
     form input, form textarea { width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:5px; }
-    form button { background:#00c851; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; transition:background 0.3s; }
+    form button { background:#00c851; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; transition:0.3s; }
     form button:hover { background:#009e3c; }
 
+    /* Popup de contacto */
+    .popup { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1003; }
+    .popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; position:relative; max-width:300px; }
+    .popup-content .boton { display:block; margin:10px auto; }
+
+    .popup-content span { cursor:pointer; position:absolute; top:10px; right:15px; font-size:18px; }
+    
     @media (max-width:600px) {
       .header-container { flex-direction:column; }
-      .logo { height:80px; }
+      .logo { height:60px; }
       nav a { display:block; margin:5px 0; }
     }
   </style>
@@ -58,6 +62,7 @@
   </div>
   <nav>
     <a href="#inicio">Inicio</a>
+    <a href="#quienes-somos">Quiénes somos</a>
     <a href="#servicios">Servicios</a>
     <a href="#productos">Productos</a>
     <a href="#contacto">Contacto</a>
@@ -65,11 +70,13 @@
 </header>
 
 <section id="inicio">
+  <h2>Bienvenido</h2>
+  <p>Renta, venta y mantenimiento de impresoras multifuncionales Ricoh. Servicio profesional en León, Guanajuato.</p>
+</section>
 
 <section id="quienes-somos">
   <h2>Quiénes somos</h2>
   <p>En PRINTIVA nos especializamos en la renta, venta y mantenimiento de impresoras multifuncionales Ricoh. Contamos con más de 10 años de experiencia brindando soluciones confiables a oficinas, papelerías e imprentas en León, Guanajuato.</p>
-  <p>Nuestro compromiso es ofrecer un servicio profesional, rápido y adaptado a las necesidades de cada cliente, asegurando que tus equipos funcionen siempre al máximo rendimiento.</p>
 </section>
 
 <section id="servicios">
@@ -86,37 +93,31 @@
 
 <section id="productos">
   <h2>Productos disponibles</h2>
-
   <div class="producto">
     <h3>Ricoh IM 430</h3>
     <p>Impresora multifuncional blanco y negro. Ideal para oficinas pequeñas y medianas. Alta velocidad de impresión y escaneo.</p>
     <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
   </div>
-
   <div class="producto">
     <h3>Ricoh IM C3000</h3>
     <p>Impresora multifuncional color, ideal para oficinas medianas. Alta calidad de impresión, escaneo y copiado a color.</p>
     <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
   </div>
-
   <div class="producto">
     <h3>Ricoh IM 4000</h3>
     <p>Impresora monocromo de alto volumen. Perfecta para oficinas grandes e impresión rápida de documentos en grandes cantidades.</p>
     <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
   </div>
-
   <div class="producto">
     <h3>Ricoh P800</h3>
     <p>Impresora de etiquetas y papelería especializada. Ideal para negocios que requieren impresiones de alta calidad en papel especial.</p>
     <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
   </div>
-
   <div class="producto">
     <h3>Ricoh P501</h3>
     <p>Impresora compacta para oficinas pequeñas o papelerías. Rápida, confiable y eficiente en consumo de tinta.</p>
     <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
   </div>
-
 </section>
 
 <section id="contacto">
@@ -128,26 +129,4 @@
   <form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain">
     <input type="text" name="nombre" placeholder="Tu nombre" required/>
     <input type="email" name="correo" placeholder="Tu correo" required/>
-    <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
-  <div class="redes">
-    <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
-      <img src="face.png" alt="Facebook" class="social-icon"/>
-    </a>
-    <a href="https://www.instagram.com/tuusuario" target="_blank">
-      <img src="insta.png" alt="Instagram" class="social-icon"/>
-    </a>
-  </div>
-</footer>
-
-<a href="https://wa.me/524778518038" class="whatsapp-float" target="_blank">💬</a>
-
-</body>
-</html>
-
-
+    <textarea name="mensaje" placeholder="Escribe tu mensaje" required
