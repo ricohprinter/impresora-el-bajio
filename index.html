@@ -108,24 +108,19 @@
       margin-top: 10px;
     }
 
-    footer .redes a.redes-icon {
-      display: inline-block;
+    footer .redes a {
       margin: 0 8px;
-      background-color: #00ff5e;
-      color: #000;
-      font-size: 24px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      border-radius: 50%;
-      transition: background 0.3s, color 0.3s;
-      text-decoration: none;
+      display: inline-block;
     }
 
-    footer .redes a.redes-icon:hover {
-      background-color: #009e3c;
-      color: #fff;
+    footer .redes img.social-icon {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    footer .redes img.social-icon:hover {
+      transform: scale(1.2);
     }
 
     /* Botón flotante WhatsApp */
@@ -177,7 +172,6 @@
       <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
     </div>
 
-    <!-- Puedes duplicar el div ".producto" para más impresoras -->
   </section>
 
   <section id="contacto">
@@ -190,9 +184,15 @@
   <footer>
     <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
     <div class="redes">
-      <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank" class="redes-icon">📘</a>
-      <a href="https://www.instagram.com/tuusuario" target="_blank" class="redes-icon">📸</a>
-      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="redes-icon">🔗</a>
+      <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
+        <img src="facebook.svg" alt="Facebook" class="social-icon"/>
+      </a>
+      <a href="https://www.instagram.com/tuusuario" target="_blank">
+        <img src="instagram.svg" alt="Instagram" class="social-icon"/>
+      </a>
+      <a href="https://www.linkedin.com/in/tuusuario" target="_blank">
+        <img src="linkedin.svg" alt="LinkedIn" class="social-icon"/>
+      </a>
     </div>
   </footer>
 
