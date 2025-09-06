@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PRINTIVA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +13,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: #f2f2f2;
       color: #333;
       line-height: 1.6;
@@ -21,52 +22,77 @@
     header {
       background-color: #000;
       color: #00ff5e;
-      padding: 20px;
+      padding: 15px 20px;
       text-align: center;
     }
 
-   header img {
-  height: 120px;
-  width: auto;
-  max-width: 90%;
-  margin-bottom: 10px;
-}
+    .header-container {
+      display: flex;
+      align-items: center;        /* Centra verticalmente */
+      justify-content: space-between;  /* Logos a los lados, título en medio */
+    }
+
+    .header-container h1 {
+      margin: 0;
+      color: #00ff5e;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .logo {
+      height: 80px; /* Ajusta tamaño de los logos */
+      width: auto;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
 
     nav a {
       margin: 0 15px;
       color: #00ff5e;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
     }
 
     section {
-      padding: 30px 20px;
+      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
     }
 
     h2 {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       color: #000;
     }
 
     .producto {
       background: #fff;
       padding: 20px;
-      margin: 15px 0;
+      margin: 20px 0;
       border-left: 5px solid #00c851;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
 
     .boton {
       display: inline-block;
       margin-top: 10px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: #00c851;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .boton:hover {
+      background-color: #009e3c;
     }
 
     footer {
@@ -76,13 +102,35 @@
       padding: 15px;
       margin-top: 40px;
     }
+
+    /* Botón flotante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      font-size: 24px;
+      padding: 12px 14px;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      text-decoration: none;
+      z-index: 1001;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5a;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="Logo digital de Printiva (1).png" alt="Logo PRINTIVA" />
-    <h1>PRINTIVA</h1>
+    <div class="header-container">
+      <img src="logo-izquierda.png" alt="Logo Izquierda" class="logo"/>
+      <h1>PRINTIVA</h1>
+      <img src="logo-derecha.png" alt="Logo Derecha" class="logo"/>
+    </div>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
@@ -118,8 +166,8 @@
     <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
   </footer>
 
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/524778518038" class="whatsapp-float" target="_blank">💬</a>
+
 </body>
-
 </html>
-
-
