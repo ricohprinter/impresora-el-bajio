@@ -3,51 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRINTIVA</title>
+<title>PRINTIVA - Mejorado</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:'Montserrat', sans-serif; background:#f2f2f2; color:#333; line-height:1.6; }
 
+/* HEADER */
 header { background:#000; color:#00ff5e; padding:15px 20px; text-align:center; }
 .header-container { display:flex; align-items:center; justify-content:space-between; }
 .header-container h1 { margin:0; color:#00ff5e; flex-grow:1; text-align:center; }
 .logo { height:80px; width:auto; }
-
 nav { margin-top:10px; }
 nav a { margin:0 15px; color:#00ff5e; text-decoration:none; font-weight:bold; transition:0.3s; }
 nav a:hover { color:#fff; }
 
+/* SECCIONES */
 section { padding:40px 20px; max-width:900px; margin:auto; }
 h2 { margin-bottom:15px; color:#000; }
 .producto, .servicio { background:#fff; padding:20px; margin:20px 0; border-left:5px solid #00c851; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
 .boton { display:inline-block; margin-top:10px; padding:12px 24px; background:#00c851; color:white; text-decoration:none; border-radius:6px; transition:0.3s; }
 .boton:hover { background:#009e3c; }
 
+/* FOOTER */
 footer { background:#000; color:white; text-align:center; padding:15px; margin-top:40px; }
 footer .redes { margin-top:10px; }
 footer .redes a { margin:0 8px; display:inline-block; }
 footer .redes img.social-icon { width:40px; height:40px; transition: transform 0.3s; }
 footer .redes img.social-icon:hover { transform:scale(1.2); }
 
+/* WHATSAPP FLOTANTE */
 .whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; font-size:24px; padding:12px 14px; border-radius:50%; box-shadow:0 3px 6px rgba(0,0,0,0.2); text-decoration:none; z-index:1001; }
 .whatsapp-float:hover { background:#1ebe5a; }
 
+/* FORMULARIO CONTACTO */
 form { background:#fff; padding:20px; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); margin-top:20px; }
 form input, form textarea { width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:5px; }
 form button { background:#00c851; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; transition:0.3s; }
 form button:hover { background:#009e3c; }
 
-/* Popup de contacto */
+/* POPUP */
 .popup { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1003; }
-.popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; position:relative; max-width:300px; }
+.popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; position:relative; max-width:320px; }
 .popup-content .boton { display:block; margin:10px auto; }
 .popup-content span { cursor:pointer; position:absolute; top:10px; right:15px; font-size:18px; }
 
-/* Slider de productos */
-.slider { position:relative; overflow:hidden; max-width:900px; margin:auto; }
-.slides { display:flex; transition:transform 0.5s ease-in-out; }
-.slides .producto { display:flex; align-items:center; gap:20px; min-width:100%; box-sizing:border-box; }
+/* SLIDER MEJORADO */
+.slider { position:relative; overflow:hidden; max-width:900px; margin:auto; background: linear-gradient(to right, #f2f2f2, #e6ffe6); border-radius:10px; }
+.slides { position:relative; }
+.slides .producto { position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; gap:20px; opacity:0; transition:opacity 1s ease-in-out; padding:20px; box-sizing:border-box; }
+.slides .producto.active { opacity:1; position:relative; }
 .producto-img { width:200px; height:auto; border-radius:5px; }
 .producto-info { flex:1; }
 .prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:#00c851; color:white; border:none; padding:10px; border-radius:50%; cursor:pointer; font-size:20px; z-index:100; }
@@ -55,6 +60,11 @@ form button:hover { background:#009e3c; }
 .next { right:10px; }
 .prev:hover, .next:hover { background:#009e3c; }
 
+/* ANIMACIONES */
+.producto-info h3, .producto-info p { opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
+.producto.active .producto-info h3, .producto.active .producto-info p { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
 @media(max-width:600px){
 .header-container { flex-direction:column; }
 .logo { height:60px; }
@@ -107,7 +117,7 @@ nav a { display:block; margin:5px 0; }
 <h2>Productos disponibles</h2>
 <div class="slider">
 <div class="slides">
-  <div class="producto">
+  <div class="producto active">
     <img src="im430.png" alt="Ricoh IM 430" class="producto-img"/>
     <div class="producto-info">
       <h3>Ricoh IM 430</h3>
@@ -143,7 +153,7 @@ nav a { display:block; margin:5px 0; }
     <img src="p501.png" alt="Ricoh P501" class="producto-img"/>
     <div class="producto-info">
       <h3>Ricoh P501</h3>
-      <p>Impresora compacta para oficinas pequeñas o papelerías. Rápida y eficiente en consumo de tinta.</p>
+      <p>Impresora compacta para oficinas pequeñas o papelerías. Rápida, confiable y eficiente.</p>
       <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
     </div>
   </div>
@@ -158,7 +168,6 @@ nav a { display:block; margin:5px 0; }
 <p><strong>📞 Teléfono:</strong> 477 851 8038</p>
 <p><strong>📧 Correo:</strong> printricoh@hotmail.com</p>
 <p><strong>📍 Ubicación:</strong> León, Guanajuato</p>
-
 <form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain">
 <input type="text" name="nombre" placeholder="Tu nombre" required/>
 <input type="email" name="correo" placeholder="Tu correo" required/>
@@ -170,33 +179,55 @@ nav a { display:block; margin:5px 0; }
 <footer>
 <p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
 <div class="redes">
-<a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank"><img src="face.png" alt="Facebook" class="social-icon"/></a>
-<a href="https://www.instagram.com/tuusuario" target="_blank"><img src="insta.png" alt="Instagram" class="social-icon"/></a>
+<a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
+<img src="face.png" alt="Facebook" class="social-icon"/>
+</a>
+<a href="https://www.instagram.com/tuusuario" target="_blank">
+<img src="insta.png" alt="Instagram" class="social-icon"/>
+</a>
 </div>
 </footer>
 
 <a href="https://wa.me/524778518038" class="whatsapp-float" target="_blank">💬</a>
 
-<!-- Popup contacto -->
-<div id="popup-contacto" class="popup">
-<div class="popup-content">
-<span id="cerrar-popup">&times;</span>
-<h3>¿Necesitas ayuda?</h3>
-<p>Contáctanos por WhatsApp o correo, te responderemos rápido.</p>
-<a href="https://wa.me/524778518038" class="boton" target="_blank">💬 WhatsApp</a>
-</div>
-</div>
-
 <script>
-// Popup
-const popup = document.getElementById('popup-contacto');
-const cerrar = document.getElementById('cerrar-popup');
-window.onload = () => { popup.style.display='flex'; };
-cerrar.onclick = () => { popup.style.display='none'; };
-window.onclick = (e) => { if(e.target === popup) popup.style.display='none'; };
+// POPUP
+const popup=document.createElement('div');
+popup.className='popup';
+popup.innerHTML='<div class="popup-content"><span id="cerrar-popup">&times;</span><h3>Contacto rápido</h3><form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain"><input type="text" name="nombre" placeholder="Tu nombre" required/><input type="email" name="correo" placeholder="Tu correo" required/><textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea><button type="submit">Enviar</button></form></div>';
+document.body.appendChild(popup);
+const cerrar=popup.querySelector('#cerrar-popup');
+window.onload=()=>{popup.style.display='flex';};
+cerrar.onclick=()=>{popup.style.display='none';};
+window.onclick=(e)=>{if(e.target===popup) popup.style.display='none';};
 
-// Slider automático
-let indice = 0;
-const slides = document.querySelectorAll('.slides .producto');
-function mostrarSlide(i){ document.querySelector('.slides').style.transform = `translateX(${-i*100}%)`; }
-function siguienteSlide(){ indice = (indice+1) % slides.length;
+// SLIDER
+let indice=0;
+const slides=document.querySelectorAll('.slides .producto');
+const totalSlides=slides.length;
+
+function mostrarSlide(i){
+  slides.forEach((slide,index)=>{
+    slide.classList.remove('active');
+    if(index===i) slide.classList.add('active');
+  });
+}
+
+function siguienteSlide(){
+  indice=(indice+1)%totalSlides;
+  mostrarSlide(indice);
+}
+function anteriorSlide(){
+  indice=(indice-1+totalSlides)%totalSlides;
+  mostrarSlide(indice);
+}
+
+document.querySelector('.prev').addEventListener('click',anteriorSlide);
+document.querySelector('.next').addEventListener('click',siguienteSlide);
+setInterval(siguienteSlide,5000);
+
+mostrarSlide(indice);
+</script>
+
+</body>
+</html>
