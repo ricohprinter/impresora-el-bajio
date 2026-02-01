@@ -1,234 +1,296 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMERICK - Mejorado</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Montserrat', sans-serif; background:#f2f2f2; color:#333; line-height:1.6; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMERICK</title>
 
-/* HEADER */
-header { background:#000; color:#00ff5e; padding:15px 20px; text-align:center; }
-.header-container { display:flex; align-items:center; justify-content:space-between; }
-.header-container h1 { margin:0; color:#00ff5e; flex-grow:1; text-align:center; }
-.logo { height:80px; width:auto; }
-nav { margin-top:10px; }
-nav a { margin:0 15px; color:#00ff5e; text-decoration:none; font-weight:bold; transition:0.3s; }
-nav a:hover { color:#fff; }
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-/* SECCIONES */
-section { padding:40px 20px; max-width:900px; margin:auto; }
-h2 { margin-bottom:15px; color:#000; }
-.producto, .servicio { background:#fff; padding:20px; margin:20px 0; border-left:5px solid #00c851; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
-.boton { display:inline-block; margin-top:10px; padding:12px 24px; background:#00c851; color:white; text-decoration:none; border-radius:6px; transition:0.3s; }
-.boton:hover { background:#009e3c; }
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body { font-family:'Montserrat', sans-serif; background:#f2f2f2; color:#333; }
 
-/* FOOTER */
-footer { background:#000; color:white; text-align:center; padding:15px; margin-top:40px; }
-footer .redes { margin-top:10px; }
-footer .redes a { margin:0 8px; display:inline-block; }
-footer .redes img.social-icon { width:40px; height:40px; transition: transform 0.3s; }
-footer .redes img.social-icon:hover { transform:scale(1.2); }
+    header { background:#000; color:#00ff5e; padding:15px 20px; text-align:center; }
+    .header-container { display:flex; align-items:center; justify-content:space-between; }
+    .header-container h1 { flex-grow:1; text-align:center; color:#00ff5e; }
+    .logo { height:100px; }
 
-/* WHATSAPP FLOTANTE */
-.whatsapp-float { position:fixed; bottom:20px; right:20px; background:#25d366; color:white; font-size:24px; padding:12px 14px; border-radius:50%; box-shadow:0 3px 6px rgba(0,0,0,0.2); text-decoration:none; z-index:1001; }
-.whatsapp-float:hover { background:#1ebe5a; }
+    nav a {
+      margin:0 12px;
+      color:#00ff5e;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    nav a:hover { color:#fff; }
 
-/* FORMULARIO CONTACTO */
-form { background:#fff; padding:20px; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.1); margin-top:20px; }
-form input, form textarea { width:100%; padding:10px; margin-bottom:10px; border:1px solid #ccc; border-radius:5px; }
-form button { background:#00c851; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; transition:0.3s; }
-form button:hover { background:#009e3c; }
+    section { padding:40px 20px; max-width:1000px; margin:auto; }
+    h2 { margin-bottom:15px; }
 
-/* POPUP */
-.popup { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:1003; }
-.popup-content { background:#fff; padding:30px; border-radius:10px; text-align:center; position:relative; max-width:320px; }
-.popup-content .boton { display:block; margin:10px auto; }
-.popup-content span { cursor:pointer; position:absolute; top:10px; right:15px; font-size:18px; }
+    .servicio, .producto-box {
+      background:#fff;
+      padding:20px;
+      margin:20px 0;
+      border-left:5px solid #00c851;
+      border-radius:8px;
+      box-shadow:0 3px 6px rgba(0,0,0,0.1);
+    }
 
-/* SLIDER MEJORADO */
-.slider { position:relative; overflow:hidden; max-width:900px; margin:auto; background: linear-gradient(to right, #f2f2f2, #e6ffe6); border-radius:10px; }
-.slides { position:relative; }
-.slides .producto { position:absolute; top:0; left:0; width:100%; display:flex; align-items:center; gap:20px; opacity:0; transition:opacity 1s ease-in-out; padding:20px; box-sizing:border-box; }
-.slides .producto.active { opacity:1; position:relative; }
-.producto-img { width:200px; height:auto; border-radius:5px; }
-.producto-info { flex:1; }
-.prev, .next { position:absolute; top:50%; transform:translateY(-50%); background:#00c851; color:white; border:none; padding:10px; border-radius:50%; cursor:pointer; font-size:20px; z-index:100; }
-.prev { left:10px; }
-.next { right:10px; }
-.prev:hover, .next:hover { background:#009e3c; }
+    .boton {
+      display:inline-block;
+      margin-top:10px;
+      padding:12px 24px;
+      background:#00c851;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+    }
+    .boton:hover { background:#009e3c; }
 
-/* ANIMACIONES */
-.producto-info h3, .producto-info p { opacity:0; transform:translateY(20px); transition:all 0.6s ease; }
-.producto.active .producto-info h3, .producto.active .producto-info p { opacity:1; transform:translateY(0); }
+    /* SLIDER */
+    .slider {
+      position:relative;
+      overflow:hidden;
+      height:360px;
+    }
+    .slides {
+      display:flex;
+      transition:transform 0.8s ease;
+    }
+    .producto {
+      min-width:100%;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      padding:20px;
+    }
+    .producto img {
+      width:280px;
+      border-radius:10px;
+    }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-.header-container { flex-direction:column; }
-.logo { height:60px; }
-nav a { display:block; margin:5px 0; }
-.slides .producto { flex-direction:column; text-align:center; }
-.producto-img { width:150px; margin-bottom:10px; }
-}
-</style>
+    .prev, .next {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:#000;
+      color:#00ff5e;
+      border:none;
+      font-size:24px;
+      padding:10px;
+      cursor:pointer;
+    }
+    .prev { left:10px; }
+    .next { right:10px; }
+
+    footer {
+      background:#000;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    .redes img {
+      width:40px;
+      margin:0 10px;
+    }
+
+    /* WhatsApp */
+    .whatsapp-float {
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25d366;
+      color:white;
+      font-size:24px;
+      padding:14px;
+      border-radius:50%;
+      text-decoration:none;
+    }
+
+    /* POPUP */
+    .popup {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+    }
+    .popup-content {
+      background:#fff;
+      padding:30px;
+      border-radius:10px;
+      max-width:300px;
+      position:relative;
+      text-align:center;
+    }
+    .popup-content span {
+      position:absolute;
+      top:10px;
+      right:15px;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    form input, form textarea {
+      width:100%;
+      margin-bottom:10px;
+      padding:10px;
+    }
+
+    @media(max-width:700px){
+      .producto { flex-direction:column; text-align:center; }
+      .producto img { width:200px; }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-<div class="header-container">
-<img src="Logo.png" alt="Logo Izquierda" class="logo"/>
-<h1>PRINTIVA</h1>
-<img src="logo1.png" alt="Logo Derecha" class="logo"/>
-</div>
-<nav>
-<a href="#inicio">Inicio</a>
-<a href="#quienes-somos">Quiénes somos</a>
-<a href="#servicios">Servicios</a>
-<a href="#productos">Productos</a>
-<a href="#contacto">Contacto</a>
-</nav>
+  <div class="header-container">
+    <img src="Logo.png" class="logo">
+    <h1>LUMERICK</h1>
+    <img src="logo1.png" class="logo">
+  </div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
 <section id="inicio">
-<h2>Bienvenido</h2>
-<p>Renta, venta y mantenimiento de impresoras multifuncionales Ricoh. Servicio profesional en León, Guanajuato.</p>
-</section>
-
-<section id="quienes-somos">
-<h2>Quiénes somos</h2>
-<p>En PRINTIVA nos especializamos en la renta, venta y mantenimiento de impresoras multifuncionales Ricoh. Contamos con más de 10 años de experiencia brindando soluciones confiables a oficinas, papelerías e imprentas en León, Guanajuato.</p>
+  <h2>Quiénes somos</h2>
+  <p>
+    En <strong>LUMERICK</strong> ofrecemos soluciones profesionales en impresión:
+    renta de impresoras, venta de equipos Ricoh y servicio técnico especializado.
+    Atendemos oficinas, papelerías e imprentas en León, Guanajuato.
+  </p>
 </section>
 
 <section id="servicios">
-<h2>Servicios</h2>
-<div class="servicio">
-<h3>Renta de impresoras</h3>
-<p>Planes flexibles: renta fija mensual o por consumo, adaptados a oficinas, papelerías e imprentas.</p>
-</div>
-<div class="servicio">
-<h3>Servicio técnico</h3>
-<p>Mantenimiento profesional y soporte técnico rápido para que tu impresora siempre funcione al 100%.</p>
-</div>
+  <h2>Servicios</h2>
+  <div class="servicio">
+    <h3>Renta de impresoras</h3>
+    <p>Planes flexibles: renta fija mensual o por consumo.</p>
+  </div>
+  <div class="servicio">
+    <h3>Servicio técnico</h3>
+    <p>Mantenimiento preventivo y correctivo profesional.</p>
+  </div>
 </section>
 
 <section id="productos">
-<h2>Productos disponibles</h2>
-<div class="slider">
-<div class="slides">
-  <div class="producto active">
-    <img src="im430.png" alt="Ricoh IM 430" class="producto-img"/>
-    <div class="producto-info">
-      <h3>Ricoh IM 430</h3>
-      <p>Impresora multifuncional blanco y negro. Ideal para oficinas pequeñas y medianas.</p>
-      <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
+  <h2>Productos disponibles</h2>
+
+  <div class="slider">
+    <div class="slides">
+
+      <div class="producto">
+        <img src="im430.png">
+        <div>
+          <h3>Ricoh IM 430</h3>
+          <p>Ideal para oficinas pequeñas y medianas.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="imc3000.png">
+        <div>
+          <h3>Ricoh IM C3000</h3>
+          <p>Multifuncional a color para oficinas medianas.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="im4000.png">
+        <div>
+          <h3>Ricoh IM 4000</h3>
+          <p>Alto volumen para oficinas grandes.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="p800.png">
+        <div>
+          <h3>Ricoh P800</h3>
+          <p>Impresión especializada y alto rendimiento.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="p501.png">
+        <div>
+          <h3>Ricoh P501</h3>
+          <p>Compacta, rápida y eficiente.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
     </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
-  <div class="producto">
-    <img src="imc3000.png" alt="Ricoh IM C3000" class="producto-img"/>
-    <div class="producto-info">
-      <h3>Ricoh IM C3000</h3>
-      <p>Impresora multifuncional color, ideal para oficinas medianas. Alta calidad de impresión y escaneo a color.</p>
-      <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
-    </div>
-  </div>
-  <div class="producto">
-    <img src="im4000.png" alt="Ricoh IM 4000" class="producto-img"/>
-    <div class="producto-info">
-      <h3>Ricoh IM 4000</h3>
-      <p>Impresora monocromo de alto volumen, perfecta para oficinas grandes y alta velocidad de impresión.</p>
-      <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
-    </div>
-  </div>
-  <div class="producto">
-    <img src="p800.png" alt="Ricoh P800" class="producto-img"/>
-    <div class="producto-info">
-      <h3>Ricoh P800</h3>
-      <p>Impresora de etiquetas y papelería especializada. Alta calidad en papel especial.</p>
-      <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
-    </div>
-  </div>
-  <div class="producto">
-    <img src="p501.png" alt="Ricoh P501" class="producto-img"/>
-    <div class="producto-info">
-      <h3>Ricoh P501</h3>
-      <p>Impresora compacta para oficinas pequeñas o papelerías. Rápida, confiable y eficiente.</p>
-      <a href="https://wa.me/524778518038" class="boton" target="_blank">Cotizar por WhatsApp</a>
-    </div>
-  </div>
-</div>
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
-</div>
 </section>
 
 <section id="contacto">
-<h2>Contacto</h2>
-<p><strong>📞 Teléfono:</strong> 477 851 8038</p>
-<p><strong>📧 Correo:</strong> printricoh@hotmail.com</p>
-<p><strong>📍 Ubicación:</strong> León, Guanajuato</p>
-<form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain">
-<input type="text" name="nombre" placeholder="Tu nombre" required/>
-<input type="email" name="correo" placeholder="Tu correo" required/>
-<textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
-<button type="submit">Enviar</button>
-</form>
+  <h2>Contacto</h2>
+  <p>📞 477 851 8038</p>
+  <p>📧 lumerick.leon@gmail.com</p>
+  <p>📍 León, Guanajuato</p>
 </section>
 
 <footer>
-<p>&copy; 2025 PRINTIVA - Todos los derechos reservados</p>
-<div class="redes">
-<a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
-<img src="face.png" alt="Facebook" class="social-icon"/>
-</a>
-<a href="https://www.instagram.com/tuusuario" target="_blank">
-<img src="insta.png" alt="Instagram" class="social-icon"/>
-</a>
-</div>
+  <p>&copy; 2025 LUMERICK</p>
+  <div class="redes">
+    <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
+      <img src="face.png">
+    </a>
+  </div>
 </footer>
 
-<a href="https://wa.me/524778518038" class="whatsapp-float" target="_blank">💬</a>
+<a href="https://wa.me/524778518038" class="whatsapp-float">💬</a>
+
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <span id="cerrar">&times;</span>
+    <h3>Contacto rápido</h3>
+    <form>
+      <input placeholder="Nombre">
+      <input placeholder="Correo">
+      <textarea placeholder="Mensaje"></textarea>
+      <button class="boton">Enviar</button>
+    </form>
+  </div>
+</div>
 
 <script>
-// POPUP
-const popup=document.createElement('div');
-popup.className='popup';
-popup.innerHTML='<div class="popup-content"><span id="cerrar-popup">&times;</span><h3>Contacto rápido</h3><form action="mailto:printricoh@hotmail.com" method="post" enctype="text/plain"><input type="text" name="nombre" placeholder="Tu nombre" required/><input type="email" name="correo" placeholder="Tu correo" required/><textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea><button type="submit">Enviar</button></form></div>';
-document.body.appendChild(popup);
-const cerrar=popup.querySelector('#cerrar-popup');
-window.onload=()=>{popup.style.display='flex';};
-cerrar.onclick=()=>{popup.style.display='none';};
-window.onclick=(e)=>{if(e.target===popup) popup.style.display='none';};
+let i=0;
+const slides=document.querySelector('.slides');
+const total=document.querySelectorAll('.producto').length;
 
-// SLIDER
-let indice=0;
-const slides=document.querySelectorAll('.slides .producto');
-const totalSlides=slides.length;
-
-function mostrarSlide(i){
-  slides.forEach((slide,index)=>{
-    slide.classList.remove('active');
-    if(index===i) slide.classList.add('active');
-  });
+function mover(){
+  i=(i+1)%total;
+  slides.style.transform=`translateX(-${i*100}%)`;
 }
+setInterval(mover,5000);
 
-function siguienteSlide(){
-  indice=(indice+1)%totalSlides;
-  mostrarSlide(indice);
-}
-function anteriorSlide(){
-  indice=(indice-1+totalSlides)%totalSlides;
-  mostrarSlide(indice);
-}
+document.querySelector('.next').onclick=mover;
+document.querySelector('.prev').onclick=()=>{ i=(i-1+total)%total; slides.style.transform=`translateX(-${i*100}%)`; }
 
-document.querySelector('.prev').addEventListener('click',anteriorSlide);
-document.querySelector('.next').addEventListener('click',siguienteSlide);
-setInterval(siguienteSlide,5000);
-
-mostrarSlide(indice);
+const popup=document.getElementById('popup');
+window.onload=()=>popup.style.display='flex';
+document.getElementById('cerrar').onclick=()=>popup.style.display='none';
 </script>
 
 </body>
 </html>
-
