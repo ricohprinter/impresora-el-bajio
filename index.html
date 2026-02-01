@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LUMERICK</title>
+  <title>LUMERIK</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
@@ -14,7 +14,11 @@
     header { background:#000; color:#00ff5e; padding:15px 20px; text-align:center; }
     .header-container { display:flex; align-items:center; justify-content:space-between; }
     .header-container h1 { flex-grow:1; text-align:center; color:#00ff5e; }
-    .logo { height:100px; }
+
+    /* LOGOS */
+    .logo {
+      height: 90px; /* ← CAMBIA ESTE NÚMERO SI LOS QUIERES MÁS GRANDES O CHICOS */
+    }
 
     nav a {
       margin:0 12px;
@@ -141,9 +145,11 @@
       padding:10px;
     }
 
+    /* RESPONSIVE */
     @media(max-width:700px){
       .producto { flex-direction:column; text-align:center; }
       .producto img { width:200px; }
+      .logo { height: 60px; }
     }
   </style>
 </head>
@@ -152,9 +158,9 @@
 
 <header>
   <div class="header-container">
-    <img src="LUMERICK1.png" class="logo">
-    <h1>LUMERICK</h1>
-    <img src="LUMERICK2.png" class="logo">
+    <img src="LUMERIKC1.png" class="logo" alt="Logo LUMERIK">
+    <h1>LUMERIK</h1>
+    <img src="LUMERICK2.png" class="logo" alt="Logo LUMERIK">
   </div>
   <nav>
     <a href="#inicio">Inicio</a>
@@ -167,7 +173,7 @@
 <section id="inicio">
   <h2>Quiénes somos</h2>
   <p>
-    En <strong>LUMERICK</strong> ofrecemos soluciones profesionales en impresión:
+    En <strong>LUMERIK</strong> ofrecemos soluciones profesionales en impresión:
     renta de impresoras, venta de equipos Ricoh y servicio técnico especializado.
     Atendemos oficinas, papelerías e imprentas en León, Guanajuato.
   </p>
@@ -192,7 +198,7 @@
     <div class="slides">
 
       <div class="producto">
-        <img src="im430.png">
+        <img src="im430.png" alt="Ricoh IM 430">
         <div>
           <h3>Ricoh IM 430</h3>
           <p>Ideal para oficinas pequeñas y medianas.</p>
@@ -201,7 +207,7 @@
       </div>
 
       <div class="producto">
-        <img src="imc3000.png">
+        <img src="imc3000.png" alt="Ricoh IM C3000">
         <div>
           <h3>Ricoh IM C3000</h3>
           <p>Multifuncional a color para oficinas medianas.</p>
@@ -210,7 +216,7 @@
       </div>
 
       <div class="producto">
-        <img src="im4000.png">
+        <img src="im4000.png" alt="Ricoh IM 4000">
         <div>
           <h3>Ricoh IM 4000</h3>
           <p>Alto volumen para oficinas grandes.</p>
@@ -219,7 +225,7 @@
       </div>
 
       <div class="producto">
-        <img src="p800.png">
+        <img src="p800.png" alt="Ricoh P800">
         <div>
           <h3>Ricoh P800</h3>
           <p>Impresión especializada y alto rendimiento.</p>
@@ -228,7 +234,7 @@
       </div>
 
       <div class="producto">
-        <img src="p501.png">
+        <img src="p501.png" alt="Ricoh P501">
         <div>
           <h3>Ricoh P501</h3>
           <p>Compacta, rápida y eficiente.</p>
@@ -250,28 +256,15 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 LUMERICK</p>
+  <p>&copy; 2025 LUMERIK</p>
   <div class="redes">
     <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
-      <img src="face.png">
+      <img src="face.png" alt="Facebook LUMERIK">
     </a>
   </div>
 </footer>
 
 <a href="https://wa.me/524778518038" class="whatsapp-float">💬</a>
-
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <span id="cerrar">&times;</span>
-    <h3>Contacto rápido</h3>
-    <form>
-      <input placeholder="Nombre">
-      <input placeholder="Correo">
-      <textarea placeholder="Mensaje"></textarea>
-      <button class="boton">Enviar</button>
-    </form>
-  </div>
-</div>
 
 <script>
 let i=0;
@@ -285,16 +278,11 @@ function mover(){
 setInterval(mover,5000);
 
 document.querySelector('.next').onclick=mover;
-document.querySelector('.prev').onclick=()=>{ i=(i-1+total)%total; slides.style.transform=`translateX(-${i*100}%)`; }
-
-const popup=document.getElementById('popup');
-window.onload=()=>popup.style.display='flex';
-document.getElementById('cerrar').onclick=()=>popup.style.display='none';
+document.querySelector('.prev').onclick=()=>{
+  i=(i-1+total)%total;
+  slides.style.transform=`translateX(-${i*100}%)`;
+}
 </script>
 
 </body>
 </html>
-
-
-
-
