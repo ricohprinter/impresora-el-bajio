@@ -17,11 +17,10 @@
 
     /* LOGOS POR SEPARADO */
     .logo-izq {
-      height: 120px; /* Logo izquierdo */
+      height: 120px; /* ajusta tamaño logo izquierdo */
     }
-
     .logo-der {
-      height: 100px; /* Logo derecho */
+      height: 140px; /* ajusta tamaño logo derecho */
     }
 
     nav a {
@@ -35,7 +34,7 @@
     section { padding:40px 20px; max-width:1000px; margin:auto; }
     h2 { margin-bottom:15px; }
 
-    .servicio {
+    .servicio, .producto-box {
       background:#fff;
       padding:20px;
       margin:20px 0;
@@ -122,13 +121,8 @@
       .producto { flex-direction:column; text-align:center; }
       .producto img { width:200px; }
 
-      .logo-izq {
-        height: 60px;
-      }
-
-      .logo-der {
-        height: 50px;
-      }
+      .logo-izq { height: 60px; }
+      .logo-der { height: 50px; }
     }
   </style>
 </head>
@@ -158,9 +152,92 @@
   </p>
 </section>
 
+<section id="servicios">
+  <h2>Servicios</h2>
+  <div class="servicio">
+    <h3>Renta de impresoras</h3>
+    <p>Planes flexibles: renta fija mensual o por consumo.</p>
+  </div>
+  <div class="servicio">
+    <h3>Servicio técnico</h3>
+    <p>Mantenimiento preventivo y correctivo profesional.</p>
+  </div>
+</section>
+
+<section id="productos">
+  <h2>Productos disponibles</h2>
+
+  <div class="slider">
+    <div class="slides">
+
+      <div class="producto">
+        <img src="im430.png" alt="Ricoh IM 430">
+        <div>
+          <h3>Ricoh IM 430</h3>
+          <p>Ideal para oficinas pequeñas y medianas.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="imc3000.png" alt="Ricoh IM C3000">
+        <div>
+          <h3>Ricoh IM C3000</h3>
+          <p>Multifuncional a color para oficinas medianas.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="im4000.png" alt="Ricoh IM 4000">
+        <div>
+          <h3>Ricoh IM 4000</h3>
+          <p>Alto volumen para oficinas grandes.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="p800.png" alt="Ricoh P800">
+        <div>
+          <h3>Ricoh P800</h3>
+          <p>Impresión especializada y alto rendimiento.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="p501.png" alt="Ricoh P501">
+        <div>
+          <h3>Ricoh P501</h3>
+          <p>Compacta, rápida y eficiente.</p>
+          <a href="https://wa.me/524778518038" class="boton">Cotizar</a>
+        </div>
+      </div>
+
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>📞 477 851 8038</p>
+  <p>📧 printricoh@hotmail.com</p>
+  <p>📍 León, Guanajuato</p>
+</section>
+
 <footer>
   <p>&copy; 2025 LUMERIK</p>
+  <div class="redes">
+    <a href="https://www.facebook.com/profile.php?id=61573619840244" target="_blank">
+      <img src="face.png" alt="Facebook LUMERIK">
+    </a>
+  </div>
 </footer>
+
+<a href="https://wa.me/524778518038" class="whatsapp-float">💬</a>
 
 <script>
 let i=0;
@@ -172,6 +249,12 @@ function mover(){
   slides.style.transform=`translateX(-${i*100}%)`;
 }
 setInterval(mover,5000);
+
+document.querySelector('.next').onclick=mover;
+document.querySelector('.prev').onclick=()=>{
+  i=(i-1+total)%total;
+  slides.style.transform=`translateX(-${i*100}%)`;
+}
 </script>
 
 </body>
